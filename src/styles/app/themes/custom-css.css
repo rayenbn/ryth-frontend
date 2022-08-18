@@ -1,0 +1,117 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 98%;
+} */
+
+.profile-picture {
+  border-radius: 50%;
+  border: #e9e7e7 4px solid; }
+
+  .avatar-xs {
+    width: 36px;
+    height: 36px; }
+
+  .avatar-sm {
+    width: 56px;
+    height: 56px; }
+  
+  .avatar-md {
+    width: 74px;
+    height: 74px; }
+  
+  .avatar-lg {
+    width: 100px;
+    height: 100px; }
+  
+  .avatar-xl {
+    width: 170px;
+    height: 170px; }
+
+  #left {
+      float: left;
+      width: 60%;
+      /* padding: 20px; */
+      /* background: red; */
+      height: calc(100vh - 80px);
+      overflow: scroll;
+      overflow-x: hidden;
+  }
+
+  #right {
+      float: left;
+      width: 40%;
+      /* padding: 20px; */
+      height: calc(100vh - 80px);
+      overflow: scroll;
+      overflow-x: hidden;
+  }
+
+  .profile-pic {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+}
+
+.profile-image-upload {
+    display: none;
+}
+.circle {
+    border-radius: 1000px !important;
+    overflow: hidden;
+    width: 128px;
+    height: 128px;
+    border: 8px solid rgb(236 235 235 / 70%);
+    position: relative;
+    /* top: 72px; */
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.p-image {
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #10163a;
+    background-color: #dddddd;
+    padding: 0px 5px;
+    padding-top: 6px;
+    border-radius: 20px;
+}
+.p-image:hover {
+     transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.upload-profile-image-button {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.upload-profile-image-button:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
+}
+.cover-upload {
+    display: none;
+}
