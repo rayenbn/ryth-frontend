@@ -30,12 +30,14 @@ class JwtAuthService {
       setTimeout(() => {
         resolve(this.user);
       }, 100);
+
     }).then(data => {
       this.setSession(data.token);
       this.setUser(data);
       return data;
     });
   };
+
 
   
 
@@ -49,7 +51,6 @@ class JwtAuthService {
       localStorage.setItem("jwt_token", token);
       axios.defaults.baseURL='https://hub.rythminno.com/api/v1/frontend/';
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      
     } else {
       localStorage.removeItem("jwt_token");
       delete axios.defaults.headers.common["Authorization"];

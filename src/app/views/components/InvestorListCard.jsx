@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 const InvestorListCard = ({slugName, name, profileType, capital, friends, followedStartups, avatar, preferredIndustries}) => {
+
   return (
     <div className="col-lg-4 col-xl-4 mb-4">
         <div className="card mb-4">
@@ -34,11 +35,12 @@ const InvestorListCard = ({slugName, name, profileType, capital, friends, follow
                     <span className="badge badge-pill badge-outline-primary m-1">Artificial intelligence</span>  
                     <span className="badge badge-pill badge-outline-primary m-1">Business tools</span>  
                     <span className="badge badge-pill badge-outline-primary m-1">Edutech</span>  
+
                     </div>
                 </div>
                 <div className="mt-2">
                     <a href={`/investor/${slugName}`} className="btn btn-primary btn-block m-1" >View Profile</a>
-                
+
                 </div>
             </div>
         </div>
