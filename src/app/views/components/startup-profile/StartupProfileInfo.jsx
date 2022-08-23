@@ -1,9 +1,12 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import CommentForm from "../CommentForm";
+import Popup from "../Popup";
+import { useState } from "react";
 
 const StartupProfileInfo = ({description,industry,country,officeAddress, projectLevel,establishmentDate,websiteUrl}) => {
-  return (
+ const [buttonPopup , setButtonPopup]= useState(false)
+    return (
     <>
         <div className="card mb-4">
             <div className="card-body">
@@ -11,9 +14,10 @@ const StartupProfileInfo = ({description,industry,country,officeAddress, project
                 <div className="ul-widget__head-label">
                     <h3 className="ul-widget__head-title">General Information</h3>
                 </div>
-                <button className="btn btn-primary mb-2" type="button" data-toggle="modal" data-target=".edit-startup-profile-info">Edit Info</button>
+                <button onClick={()=>setButtonPopup(true)} className="btn btn-primary mb-2" type="button" data-toggle="modal" data-target=".edit-startup-profile-info">Edit Info</button>
                 
             </div>
+            
                 {/* <!-- <h4>Personal Information</h4> --> */}
                 {description && <p className="mb-4 mt-4">{description}</p>}
                 {/* <!-- <hr> --> */}
@@ -48,6 +52,8 @@ const StartupProfileInfo = ({description,industry,country,officeAddress, project
 
             </div>
         </div>
+        <Popup trigger ={buttonPopup}>
+                </Popup>
     </>
   );
 };
