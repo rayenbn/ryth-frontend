@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, CardImg } from "react-bootstrap";
+import { Card,Dropdown, CardImg } from "react-bootstrap";
+
 // import { profileImg } from "/assets/images/faces/1.jpg";
 
 const StartupPostCard = ({ name, children, className, industry }) => {
@@ -46,22 +47,43 @@ const StartupPostCard = ({ name, children, className, industry }) => {
                     <div className="d-flex">
                         <p className="mb-1 text-title text-16 flex-grow-1" style={{lineHeight: '1'}}>David <br/>
                         <span className="text-small text-muted"> 2 days ago </span></p>
-                        
-                        <button className="btn bg-white _r_btn border-0 " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       
+                       
+                    <Dropdown>
+
+                        <Dropdown.Toggle  className="btn bg-white _r_btn border-0 " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                             <span className="_dot _inline-dot bg-light"></span>
                             <span className="_dot _inline-dot bg-light"></span>
                             <span className="_dot _inline-dot bg-light"></span>
-                        </button>
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item>Delete</Dropdown.Item>
+                        </Dropdown.Menu>
+
+                    </Dropdown>
+
+
+
                         <div className="dropdown-menu" x-placement="bottom-start" style={{position: 'absolute', transform: 'translate3d(0px, 33px, 0px)', top: '0px', left: '0px', willChange: 'transform'}}>
                             <button className="dropdown-item" type="button" 
                             // onclick="deleteComment({{$comment->id}})"
                             >Delete</button>
                         </div>
+                        
                     </div>
-                    <p className="m-0">commentcomment </p>
+
+             
+
+                    <p className="m-0">comment comment</p>
+                    
                 </div>
             </div>
         </div>
+
+
+        
+
         <form action="#" method="POST" encType="multipart/form-data" id="commentForm-{{ $post->id }}">
             <div className="input-group">
                 <input className="form-control" type="text" name="comment" placeholder="Write comment" aria-label="comment" />
@@ -80,6 +102,9 @@ const StartupPostCard = ({ name, children, className, industry }) => {
     </Card>
   );
 };
+
+
+
 
 {/* <div class="card mb-4" id="post{{ $post->id }}">
     <div class="card-body">
