@@ -4,7 +4,14 @@ import { Card,Dropdown, CardImg } from "react-bootstrap";
 // import { profileImg } from "/assets/images/faces/1.jpg";
 
 const StartupPostCard = ({ name, children, className, industry }) => {
-  return (
+  
+      
+    
+        const DeleteFunction = (comment) => {
+          console.log('Deleted Comment,' + comment );
+        }
+    
+    return (
     <Card className={className}>
       <Card.Body>
 
@@ -47,28 +54,37 @@ const StartupPostCard = ({ name, children, className, industry }) => {
                     <div className="d-flex">
                         <p className="mb-1 text-title text-16 flex-grow-1" style={{lineHeight: '1'}}>David <br/>
                         <span className="text-small text-muted"> 2 days ago </span></p>
+                        
+                   
                        
-                       
-                    <Dropdown>
+                    <Dropdown >
 
-                        <Dropdown.Toggle  className="btn bg-white _r_btn border-0 " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        <Dropdown.Toggle   className="btn bg-white _r_btn border-0 " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                           
                             <span className="_dot _inline-dot bg-light"></span>
                             <span className="_dot _inline-dot bg-light"></span>
                             <span className="_dot _inline-dot bg-light"></span>
+                          
+
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item>Delete</Dropdown.Item>
+                            <Dropdown.Item onClick={() => {
+                                DeleteFunction("{{$comment->id}}");}
+                                }>Delete</Dropdown.Item>
                         </Dropdown.Menu>
 
                     </Dropdown>
+                   
 
 
 
-                        <div className="dropdown-menu" x-placement="bottom-start" style={{position: 'absolute', transform: 'translate3d(0px, 33px, 0px)', top: '0px', left: '0px', willChange: 'transform'}}>
-                            <button className="dropdown-item" type="button" 
-                            // onclick="deleteComment({{$comment->id}})"
-                            >Delete</button>
+                   
+        
+
+                     
+                   <div className="dropdown-menu" x-placement="bottom-start" style={{position: 'absolute', transform: 'translate3d(0px, 33px, 0px)', top: '0px', left: '0px', willChange: 'transform'}}>
+                            <button className="dropdown-item" type="button">Delete</button>
                         </div>
                         
                     </div>
@@ -98,11 +114,12 @@ const StartupPostCard = ({ name, children, className, industry }) => {
         </form>
 
         {children}
+
       </Card.Body>
     </Card>
   );
 };
-
+ 
 
 
 
