@@ -75,17 +75,6 @@ const StartupPostCard = ({ name, children, className, industry }) => {
                         </Dropdown.Menu>
 
                     </Dropdown>
-                   
-
-
-
-                   
-        
-
-                     
-                   <div className="dropdown-menu" x-placement="bottom-start" style={{position: 'absolute', transform: 'translate3d(0px, 33px, 0px)', top: '0px', left: '0px', willChange: 'transform'}}>
-                            <button className="dropdown-item" type="button">Delete</button>
-                        </div>
                         
                     </div>
 
