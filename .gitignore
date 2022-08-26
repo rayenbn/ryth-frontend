@@ -1,2 +1,2 @@
 node_modules
-src/app/services/jwtAuthServiceDev.js
+src/app/services/jwtAuthServiceProd.js

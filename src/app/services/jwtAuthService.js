@@ -3,69 +3,21 @@ import localStorageService from "./localStorageService";
 
 class JwtAuthService {
   
-  // user = {
-  //   userId: "1",
-  //   role: 'ADMIN',
-  //   displayName: "Watson Joyce",
-  //   email: "watsonjoyce@gmail.com",
-  //   photoURL: "/assets/images/face-7.jpg",
-  //   age: 25,
-  //   token: "faslkhfh423oiu4h4kj432rkj23h432u49ufjaklj423h4jkhkjh"
-  // }
-  user = null;
-loginWithEmailAndPassword = async (email, password) => {
-    
-    var bodyFormData = new FormData();
-        // bodyFormData.append('grant_type', 'password');
-        // bodyFormData.append('client_id', 5); 
-        // bodyFormData.append('client_secret', "3O3tRyJ7rbE3mqKJJuXSu6f5EpJCnPSDIkwEwVjx"); 
-        // bodyFormData.append('scope', ""); 
-        bodyFormData.append('email', email); 
-        bodyFormData.append('password', password); 
+  user = {
+    userId: "1",
+    role: 'ADMIN',
+    displayName: "Watson Joyce",
+    email: "watsonjoyce@gmail.com",
+    photoURL: "/assets/images/face-7.jpg",
+    age: 25,
+    token: "faslkhfh423oiu4h4kj432rkj23h432u49ufjaklj423h4jkhkjh"
+  }
 
-      return await axios({
-        method: 'post',
-            url: 'http://127.0.0.1:8000/api/v1/frontend/login',
-            data: bodyFormData,
-            headers: {
-                'Content-Type': `multipart/form-data`,
-            },
-        }).then(data => {
-          console.log('data in success', data);
-          this.setSession(data.data.token);
-          this.setUser(data.data);
-          return data.data;
-        })
-        .catch((err) => {
-          console.log("login err ", err);
-        });
-
-  };
-
-  // loginWithEmailAndPassword = (email, password) => {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(this.user);
-  //     }, 1000);
-  //   }).then(data => {
-  //     this.setSession(data.token);
-  //     this.setUser(data);
-  //     return data;
-  //   });
-  // };
-
-  loginWithToken = async () => {
+  loginWithEmailAndPassword = (email, password) => {
     return new Promise((resolve, reject) => {
-      // setTimeout(() => {
-      //   resolve(this.user);
-      // }, 100);
-      this.user = localStorageService.getItem("auth_user");
-      // console.log(this.user);
-      if (this.user.token){
+      setTimeout(() => {
         resolve(this.user);
-      }else{
-        reject('not authenticated');
-      }
+      }, 1000);
     }).then(data => {
       this.setSession(data.token);
       this.setUser(data);
@@ -73,17 +25,17 @@ loginWithEmailAndPassword = async (email, password) => {
     });
   };
 
-  // loginWithToken = () => {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(this.user);
-  //     }, 100);
-  //   }).then(data => {
-  //     this.setSession(data.token);
-  //     this.setUser(data);
-  //     return data;
-  //   });
-  // };
+  loginWithToken = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.user);
+      }, 100);
+    }).then(data => {
+      this.setSession(data.token);
+      this.setUser(data);
+      return data;
+    });
+  };
 
   
 
@@ -95,7 +47,7 @@ loginWithEmailAndPassword = async (email, password) => {
   setSession = token => {
     if (token) {
       localStorage.setItem("jwt_token", token);
-      axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1/frontend/';
+      axios.defaults.baseURL = 'https://hub.rythminno.com/api/v1/frontend/';
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     } else {
       localStorage.removeItem("jwt_token");

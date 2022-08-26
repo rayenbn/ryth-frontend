@@ -1,12 +1,20 @@
 import React from "react";
-import { Card, CardImg } from "react-bootstrap";
+import { Card,Dropdown, CardImg } from "react-bootstrap";
+
 // import { profileImg } from "/assets/images/faces/1.jpg";
 
 const StartupPostCard = ({ name, children, className, industry }) => {
-  return (
+  
+      
+    
+        const DeleteFunction = (comment) => {
+          console.log('Deleted Comment,' + comment );
+        }
+    
+    return (
     <Card className={className}>
       <Card.Body>
-
+        {/* post main content */}
         <div className="ul-widget4__item ul-widget4__users" style={{borderBottom: 'none'}}>
             <div className="ul-widget4__img">
                 <img className="profile-picture avatar-sm rounded-circle" style={{width: '3.5rem'}} 
@@ -21,24 +29,20 @@ const StartupPostCard = ({ name, children, className, industry }) => {
             </div>
         </div>
         {/* <img className="d-block w-100 rounded" src="" alt="Second slide" /> */}
-
         <p>postdesc</p>
-        <div className="ul-widget-card__rate-icon --version-2">
-            <form action="#" method="POST" >
-                <input name="postid" type="hidden" value="id" />
-                <span>
-                <button className="btn-custom" style={{all: 'unset',cursor: 'pointer'}} type="button" 
-                    id="likebtn"
-                    // onClick="giveLike(id)"
-                    >
+        {/* end post main content */}
 
+        {/* likes and comment count section */}
+        <div className="ul-widget-card__rate-icon --version-2">
+                <span>
                     <i className="i-Like @if(!auth()->user()->islikedThisPost($post)) text-primary @else text-success @endif"></i>
-                </button> 
-                <span id="likesnb{{$post->id }}">231</span></span>
-            </form>
+                <span>231</span></span>
+           
             <span><a href=""><i className="i-Speach-Bubble-3 text-primary"></i></a> 21 </span>
         </div>
+        {/* end likes and comment count section */}
 
+        {/* comment list */}
         <div id="commentsBlock">
             <div className="d-flex mb-4 user" id="comment{{$comment->id}}">
                 <img className="avatar-xs rounded-circle mr-3" src="/assets/images/faces/2.jpg" alt="alt" style={{border: 'none'}} />
@@ -46,40 +50,52 @@ const StartupPostCard = ({ name, children, className, industry }) => {
                     <div className="d-flex">
                         <p className="mb-1 text-title text-16 flex-grow-1" style={{lineHeight: '1'}}>David <br/>
                         <span className="text-small text-muted"> 2 days ago </span></p>
+                    <Dropdown >
+
+                        <Dropdown.Toggle   className="btn bg-white _r_btn border-0 " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                           
+                            <span className="_dot _inline-dot bg-light"></span>
+                            <span className="_dot _inline-dot bg-light"></span>
+                            <span className="_dot _inline-dot bg-light"></span>
+                          
+
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => {
+                                DeleteFunction("{{$comment->id}}");}
+                                }>Delete</Dropdown.Item>
+                        </Dropdown.Menu>
+
+                    </Dropdown>
                         
-                        <button className="btn bg-white _r_btn border-0 " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span className="_dot _inline-dot bg-light"></span>
-                            <span className="_dot _inline-dot bg-light"></span>
-                            <span className="_dot _inline-dot bg-light"></span>
-                        </button>
-                        <div className="dropdown-menu" x-placement="bottom-start" style={{position: 'absolute', transform: 'translate3d(0px, 33px, 0px)', top: '0px', left: '0px', willChange: 'transform'}}>
-                            <button className="dropdown-item" type="button" 
-                            // onclick="deleteComment({{$comment->id}})"
-                            >Delete</button>
-                        </div>
                     </div>
-                    <p className="m-0">commentcomment </p>
+                    <p className="m-0">comment comment</p>
                 </div>
             </div>
         </div>
-        <form action="#" method="POST" encType="multipart/form-data" id="commentForm-{{ $post->id }}">
-            <div className="input-group">
-                <input className="form-control" type="text" name="comment" placeholder="Write comment" aria-label="comment" />
-                <div className="input-group-append">
-                    <button className="btn btn-primary" id="button-comment2" type="button" 
-                    // onclick="postComment({{$post->id}})"
-                    >
-                        <i className="i-Paper-Plane"></i>
-                    </button>
-                </div>
+        {/* end comment list */}
+
+       {/* comment input  */}
+        <div className="input-group">
+            <input className="form-control" type="text" name="comment" placeholder="Write comment" aria-label="comment" />
+            <div className="input-group-append">
+                <button className="btn btn-primary" id="button-comment2" type="button">
+                    <i className="i-Paper-Plane"></i>
+                </button>
             </div>
-        </form>
+        </div>
+        {/* end comment input  */}
 
         {children}
+
       </Card.Body>
     </Card>
   );
 };
+ 
+
+
 
 {/* <div class="card mb-4" id="post{{ $post->id }}">
     <div class="card-body">
