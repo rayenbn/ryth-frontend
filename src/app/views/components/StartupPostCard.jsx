@@ -1,5 +1,6 @@
 import React from "react";
-import { Card,Dropdown, CardImg } from "react-bootstrap";
+import { Card,Dropdown} from "react-bootstrap";
+import { MDBIcon } from 'mdb-react-ui-kit';
 
 // import { profileImg } from "/assets/images/faces/1.jpg";
 
@@ -78,9 +79,41 @@ const StartupPostCard = ({ name, children, className, industry }) => {
                         
                     </div>
 
-             
 
-                    <p className="m-0">comment comment</p>
+
+              <Card className="w-100">
+                <Card.Body className="p-4">
+                <div>
+                   <p className="m-0">comment section added</p>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div className="d-flex align-items-center"><div>
+
+                       <form action="#" method="POST" >
+                          <input name="postid" type="hidden" value="id" />
+                             <span  className="link-muted">
+                     
+                                <button className="btn-custom" style={{all: 'unset',cursor: 'pointer'}} type="button" 
+                                id="likebtn2"
+                                // onClick="giveLike(id)"
+                                >
+                                <i className="i-Like  text-primary " ></i>
+                                </button> 
+                                <span class="ml-1" >2</span>
+
+                            </span>
+                            <span><a href=""><i className="i-Speach-Bubble-3 text-primary ml-1"></i></a> 1 </span>
+
+                        </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
+          
+       
+
+                    
                     
                 </div>
             </div>
