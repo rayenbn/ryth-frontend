@@ -83,7 +83,7 @@ const StartupPostCard = ({ name, children, className, industry }) => {
 
               <Card className="w-100">
                 <Card.Body className="p-4">
-                <div>
+                 <div>
                    <p className="m-0">comment section added</p>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="d-flex align-items-center"><div>
