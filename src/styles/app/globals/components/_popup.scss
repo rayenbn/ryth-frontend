@@ -12,6 +12,7 @@
     overflow: hidden;
     background: fixed;
     visibility: inherit;
+    z-index: 999;
     
     
 }
@@ -21,9 +22,7 @@
     width: 100%;
     max-width: 640px;
     background-color: white;
-    
     overflow-y: auto;
-    overflow-block:vi;
     opacity:1;
     
     
